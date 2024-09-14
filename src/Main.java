@@ -89,22 +89,7 @@ public class Main {
                 int choice = JOptionPane.showOptionDialog(null, Character.toString(currentTurn)+" has won the game.", "The worlds worst Tic Tac Toe", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, typeOptions, 0);
 
                 if(choice == 0) {
-                    grid = new char[][]{
-                            {'-', '-', '-'},
-                            {'-', '-', '-'},
-                            {'-', '-', '-'}
-                    };
-
-                    b00.setText("");
-                    b01.setText("");
-                    b02.setText("");
-                    b10.setText("");
-                    b11.setText("");
-                    b12.setText("");
-                    b20.setText("");
-                    b21.setText("");
-                    b22.setText("");
-
+                    resetGame();
                 }
                 else {System.exit(420);}
 
@@ -116,7 +101,7 @@ public class Main {
 
     }
 
-    public static boolean checkGrid() {
+    static boolean checkGrid() {
 
         // This was just straight up ripped from my worlds worst connect 4, but I unfucked it.
 
@@ -131,6 +116,7 @@ public class Main {
         // 14.09.2024 14:08 | The problem was incredibly simple, crazy what a lil sleep can do. Oh yea, now I have to fix this garbage known as my diagonal logic.
         // 14.09.2024 14:23 | The diagonal logic is genuinely fucked beyond repair. I am rewriting it. (because it desperately needs that rewrite)
         // 14.09.2024 14:31 | It works. Nice.
+        // 14.09.2024 14:45 | Gonna start writing a check for a tie.
 
         for(int i = 0; i<=8; i++) {
 
@@ -193,7 +179,53 @@ public class Main {
             else {break;}
 
         }
+
+        boolean tie = true;
+
+        indexX = 0;
+        indexY = 0;
+
+        for (int i = 0; i<=8; i++) {
+
+            if (grid[indexY][indexX] == '-') {tie = false; break;}
+            if (indexX == 2) {indexY++; indexX = 0;}
+            else {indexX++;}
+
+        }
+
+        if (tie) {
+
+            String[] typeOptions = {"Play Again","Close"};
+            int choice = JOptionPane.showOptionDialog(null, "Nobody has won the game. It's a tie.", "The worlds worst Tic Tac Toe", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, typeOptions, 0);
+
+            if(choice == 0) {
+                resetGame();
+            }
+            else {System.exit(420);}
+
+        }
+
         return false;
+    }
+
+    static void resetGame() {
+
+        grid = new char[][]{
+                {'-', '-', '-'},
+                {'-', '-', '-'},
+                {'-', '-', '-'}
+        };
+
+        b00.setText("");
+        b01.setText("");
+        b02.setText("");
+        b10.setText("");
+        b11.setText("");
+        b12.setText("");
+        b20.setText("");
+        b21.setText("");
+        b22.setText("");
+
     }
 
     public static JButton button(JButton button, int i1,int i2) {
