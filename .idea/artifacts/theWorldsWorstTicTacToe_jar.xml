@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="theWorldsWorstTicTacToe:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/theWorldsWorstTicTacToe_jar</output-path>
+    <root id="archive" name="theWorldsWorstTicTacToe.jar">
+      <element id="module-output" name="theWorldsWorstTicTacToe" />
+    </root>
+  </artifact>
+</component>
