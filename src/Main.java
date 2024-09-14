@@ -6,10 +6,12 @@ import java.util.*;
 
 /*
             First of all.
-            I do want to make it  very clear that I am not proud of this creation.
+            I do want to make it very clear that I am not proud of this creation.
             Infact, I hate every singular line of it. But I am too far in this to stop now.
 
             At this point, this is fucked beyond repair.
+
+            Actually, it isn't even that bad anymore. I think I have successfully unfucked it.
 */
 
 public class Main {
@@ -23,6 +25,8 @@ public class Main {
     static JButton b20;
     static JButton b21;
     static JButton b22;
+
+
 
     static char currentTurn = 'O';
     static char[][] grid = {
@@ -105,12 +109,9 @@ public class Main {
 
         // This was just straight up ripped from my worlds worst connect 4, but I unfucked it.
 
-        int diagMode = 0;
         int indexX = 0;
         int indexY = 0;
         int spots = 0;
-        boolean resetSpots = false;
-        boolean win = false;
 
         // 13.09.2024 20:05 | I give up for today, I hate that logic.
         // 14.09.2024 14:08 | The problem was incredibly simple, crazy what a lil sleep can do. Oh yea, now I have to fix this garbage known as my diagonal logic.
@@ -231,6 +232,8 @@ public class Main {
     public static JButton button(JButton button, int i1,int i2) {
 
         button.setFocusable(false);
+        button.setFont(new Font("Arial", Font.BOLD, 35));
+        button.setForeground(new Color(26,26,26));
 
         button.addActionListener(new ActionListener() {
             @Override
