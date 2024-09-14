@@ -12,22 +12,13 @@ import java.util.*;
             At this point, this is fucked beyond repair.
 
             Actually, it isn't even that bad anymore. I think I have successfully unfucked it.
+
+            Okay I even cleaned up the repetitive code for the buttons with for loops, I think we good now.
 */
 
 public class Main {
 
-    static JButton b00;
-    static JButton b01;
-    static JButton b02;
-    static JButton b10;
-    static JButton b11;
-    static JButton b12;
-    static JButton b20;
-    static JButton b21;
-    static JButton b22;
-
-
-
+    static JButton[][] b = new JButton[3][3];
     static char currentTurn = 'O';
     static char[][] grid = {
             {'-', '-', '-'},
@@ -50,30 +41,19 @@ public class Main {
 
         JFrame frame = new JFrame("Tic Tac Toe");
 
-        b00 = button(new JButton(""),0,0);
-        b01 = button(new JButton(""),0,1);
-        b02 = button(new JButton(""),0,2);
-        b10 = button(new JButton(""),1,0);
-        b11 = button(new JButton(""),1,1);
-        b12 = button(new JButton(""),1,2);
-        b20 = button(new JButton(""),2,0);
-        b21 = button(new JButton(""),2,1);
-        b22 = button(new JButton(""),2,2);
+        b[0][0] = new JButton();
 
-        frame.add(b00);
-        frame.add(b01);
-        frame.add(b02);
-        frame.add(b10);
-        frame.add(b11);
-        frame.add(b12);
-        frame.add(b20);
-        frame.add(b21);
-        frame.add(b22);
+        for (int i1 = 0; i1<3; i1++) {
+            for (int i2 = 0; i2<3; i2++) {
+                b[i1][i2] = button(new JButton(),i1,i2);
+                frame.add(b[i1][i2]);
+            }
+        }
 
         frame.setLayout(new GridLayout(3, 3, 3, 3));
         frame.setSize(300, 300);
         frame.setLocationRelativeTo(null);
-        frame.setResizable(false);
+        frame.setResizable(true);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         frame.setVisible(true);
@@ -114,6 +94,8 @@ public class Main {
         int indexX = 0;
         int indexY = 0;
         int spots = 0;
+
+        // Here you are able to wittness the process of unfucking my own copied code.
 
         // 13.09.2024 20:05 | I give up for today, I hate that logic.
         // 14.09.2024 14:08 | The problem was incredibly simple, crazy what a lil sleep can do. Oh yea, now I have to fix this garbage known as my diagonal logic.
@@ -212,23 +194,12 @@ public class Main {
     }
 
     static void resetGame() {
-
-        grid = new char[][]{
-                {'-', '-', '-'},
-                {'-', '-', '-'},
-                {'-', '-', '-'}
-        };
-
-        b00.setText("");
-        b01.setText("");
-        b02.setText("");
-        b10.setText("");
-        b11.setText("");
-        b12.setText("");
-        b20.setText("");
-        b21.setText("");
-        b22.setText("");
-
+        for (int i1 = 0; i1<3; i1++) {
+            for (int i2 = 0; i2<3; i2++) {
+                b[i1][i2].setText("");
+                grid[i1][i2] = '-';
+            }
+        }
     }
 
     public static JButton button(JButton button, int i1,int i2) {
