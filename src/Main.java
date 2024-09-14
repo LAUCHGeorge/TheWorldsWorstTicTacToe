@@ -44,6 +44,8 @@ public class Main {
             e.printStackTrace();
         }
 
+
+
         //creating gui
 
         JFrame frame = new JFrame("Tic Tac Toe");
@@ -232,7 +234,7 @@ public class Main {
     public static JButton button(JButton button, int i1,int i2) {
 
         button.setFocusable(false);
-        button.setFont(new Font("Arial", Font.BOLD, 35));
+        button.setFont(new Font("Arial", Font.PLAIN, 35));
         button.setForeground(new Color(26,26,26));
 
         button.addActionListener(new ActionListener() {
