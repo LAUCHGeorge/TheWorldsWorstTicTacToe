@@ -1,6 +1,6 @@
 This is the worlds worst Tic Tac Toe.
 
-A Tic Tac Toe Clone Project created to improve upon my Java skills.
+A simple Tic Tac Toe Game created to improve upon my Java skills.
 
 What this project currently includes:
 -  Tic Tac Toe
