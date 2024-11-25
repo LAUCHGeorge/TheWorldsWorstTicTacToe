@@ -7,7 +7,7 @@ import java.util.*;
 /*
             First of all.
             I do want to make it very clear that I am not proud of this creation.
-            Infact, I hate every singular line of it. But I am too far in this to stop now.
+            In fact, I hate every singular line of it. But I am too far in this to stop now.
 
             At this point, this is fucked beyond repair.
 
@@ -29,13 +29,10 @@ public class Main {
     public static void main(String[] args) {
 
         try {
-            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");  // Windows Look and feel
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
-                 UnsupportedLookAndFeelException e) {
-            e.printStackTrace();
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
+            System.err.println("[ERROR] Exception occurred: "+e.getMessage());
         }
-
-
 
         //creating gui
 
